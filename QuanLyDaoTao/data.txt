@@ -1,0 +1,3 @@
+﻿[{"DV_ID":10,"DV_MA":"CNTT","DV_TEN":"Công nghệ thông tin","DV_GHI_CHU":null},{"DV_ID":11,"DV_MA":"CNTT_001"
+,"DV_TEN":"Khoa học máy tính","DV_GHI_CHU":null},{"DV_ID":12,"DV_MA":"CN","DV_TEN":"Công nghệ","DV_GHI_CHU"
+:null}]

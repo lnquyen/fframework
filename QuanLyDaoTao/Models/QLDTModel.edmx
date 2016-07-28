@@ -1,0 +1,2199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="QuanLyDaoTao.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CHUONG_TRINH_DAO_TAO">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DT_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="DT_TEN" Type="nvarchar" MaxLength="20" />
+          <Property Name="DT_NIEN_KHOA_BAT_DAU" Type="bigint" />
+          <Property Name="DT_NIEN_KHOA_KET_THUC" Type="bigint" />
+          <Property Name="DT_GHI_CHU" Type="nvarchar" MaxLength="255" />
+          <Property Name="NGANH_ID" Type="bigint" />
+          <Property Name="HDT_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+          <Key>
+            <PropertyRef Name="DTCT_ID" />
+          </Key>
+          <Property Name="DTCT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DTCT_BAT_BUOC" Type="bit" />
+          <Property Name="DT_ID" Type="bigint" />
+          <Property Name="HK_ID" Type="bigint" />
+          <Property Name="MH_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="DM_CHUC_DANH">
+          <Key>
+            <PropertyRef Name="CD_ID" />
+          </Key>
+          <Property Name="CD_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CD_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="CD_TEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="CD_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DM_CHUC_VU">
+          <Key>
+            <PropertyRef Name="CV_ID" />
+          </Key>
+          <Property Name="CV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CV_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="CV_TEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="CV_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DM_DON_VI">
+          <Key>
+            <PropertyRef Name="DV_ID" />
+          </Key>
+          <Property Name="DV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DV_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="DV_TEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="DV_CHA_ID" Type="bigint" />
+          <Property Name="DV_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DM_GIO_CHUAN_CHUC_DANH">
+          <Key>
+            <PropertyRef Name="GCCD_ID" />
+          </Key>
+          <Property Name="GCCD_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CD_ID" Type="bigint" />
+          <Property Name="GCCD_SO_GIO" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="GCCD_NGAY_AP_DUNG" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DM_GIO_CHUAN_CHUC_VU">
+          <Key>
+            <PropertyRef Name="GCCV_ID" />
+          </Key>
+          <Property Name="GCCV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CV_ID" Type="bigint" />
+          <Property Name="GCCV_PHAN_TRAM" Type="decimal" Precision="18" Scale="6" />
+          <Property Name="GCCV_NGAY_AP_DUNG" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DM_HE_DAO_TAO">
+          <Key>
+            <PropertyRef Name="HDT_ID" />
+          </Key>
+          <Property Name="HDT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HDT_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="HDT_TEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="HDT_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DM_MON_HOC">
+          <Key>
+            <PropertyRef Name="MH_ID" />
+          </Key>
+          <Property Name="MH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MH_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="MH_TEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="MH_SO_TIN_CHI" Type="int" />
+          <Property Name="MH_SO_LY_THUYET" Type="int" />
+          <Property Name="MH_SO_THUC_HANH" Type="int" />
+          <Property Name="HDT_ID" Type="bigint" />
+          <Property Name="DV_ID" Type="bigint" />
+          <Property Name="MH_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="DM_NGANH">
+          <Key>
+            <PropertyRef Name="NGANH_ID" />
+          </Key>
+          <Property Name="NGANH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NGANH_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="NGANH_TEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="NGANH_GHI_CHU" Type="nvarchar" MaxLength="255" />
+          <Property Name="DV_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="GIANG_VIEN">
+          <Key>
+            <PropertyRef Name="GV_ID" />
+          </Key>
+          <Property Name="GV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GV_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="GV_HOTEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="GV_GIOITINH" Type="bit" />
+          <Property Name="GV_NGAYSINH" Type="date" />
+          <Property Name="GV_NGAY_BAT_DAU" Type="datetime" />
+          <Property Name="GV_NGAY_KET_THUC" Type="datetime" />
+          <Property Name="GV_DIACHI" Type="nvarchar" MaxLength="255" />
+          <Property Name="GV_EMAIL" Type="nvarchar" MaxLength="100" />
+          <Property Name="GV_SDT" Type="varchar" MaxLength="15" />
+          <Property Name="DV_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="GV_CHUC_DANH">
+          <Key>
+            <PropertyRef Name="GVCD_ID" />
+          </Key>
+          <Property Name="GVCD_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GV_ID" Type="bigint" />
+          <Property Name="CD_ID" Type="bigint" />
+          <Property Name="GVCD_NGAY_BAT_DAU" Type="datetime" />
+          <Property Name="GVCD_NGAY_KET_THUC" Type="datetime" />
+          <Property Name="GVCD_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="GV_CHUC_VU">
+          <Key>
+            <PropertyRef Name="GVCV_ID" />
+          </Key>
+          <Property Name="GVCV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GV_ID" Type="bigint" />
+          <Property Name="CV_ID" Type="bigint" />
+          <Property Name="GVCV_NGAY_BAT_DAU" Type="datetime" />
+          <Property Name="GVCV_NGAY_KET_THUC" Type="datetime" />
+          <Property Name="GVCV_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="GV_DON_VI">
+          <Key>
+            <PropertyRef Name="GVDV_ID" />
+          </Key>
+          <Property Name="GVDV_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GV_ID" Type="bigint" />
+          <Property Name="DV_ID" Type="bigint" />
+          <Property Name="GVDV_NGAY_BAT_DAU" Type="datetime" />
+          <Property Name="GVDV_NGAY_KET_THUC" Type="datetime" />
+          <Property Name="GVDV_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="GV_GIANG_DAY">
+          <Key>
+            <PropertyRef Name="GVGD_ID" />
+          </Key>
+          <Property Name="GVGD_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GVGD_GHI_CHU" Type="nvarchar" MaxLength="255" />
+          <Property Name="PCGDCT_ID" Type="bigint" />
+          <Property Name="GV_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="HOC_KY">
+          <Key>
+            <PropertyRef Name="HK_ID" />
+          </Key>
+          <Property Name="HK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HK_STT" Type="int" />
+        </EntityType>
+        <EntityType Name="KHOA_HOC">
+          <Key>
+            <PropertyRef Name="KH_ID" />
+          </Key>
+          <Property Name="KH_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KH_TEN" Type="nvarchar" MaxLength="50" />
+          <Property Name="KH_GHI_CHU" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="KHOA_HOC_NIEN_KHOA">
+          <Key>
+            <PropertyRef Name="KHNK_ID" />
+          </Key>
+          <Property Name="KHNK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KH_ID" Type="bigint" />
+          <Property Name="NK_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="LOP_CHUYEN_NGANH">
+          <Key>
+            <PropertyRef Name="LOP_ID" />
+          </Key>
+          <Property Name="LOP_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LOP_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="LOP_TEN" Type="nvarchar" MaxLength="255" />
+          <Property Name="LOP_SI_SO" Type="int" />
+          <Property Name="LOP_GHI_CHU" Type="nvarchar" MaxLength="255" />
+          <Property Name="KH_ID" Type="bigint" />
+          <Property Name="NGANH_ID" Type="bigint" />
+          <Property Name="GV_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="LOP_HOC_PHAN">
+          <Key>
+            <PropertyRef Name="LHP_ID" />
+          </Key>
+          <Property Name="LHP_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LHP_MA" Type="nvarchar" MaxLength="20" />
+          <Property Name="LHP_GHI_CHU" Type="nvarchar" MaxLength="255" />
+          <Property Name="MH_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="LOP_HOC_PHAN_CHI_TIET">
+          <Key>
+            <PropertyRef Name="LHPCT_ID" />
+          </Key>
+          <Property Name="LHPCT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LHPCT_SI_SO" Type="int" />
+          <Property Name="LHP_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="MH_TIEN_QUYET">
+          <Key>
+            <PropertyRef Name="TQ_ID" />
+          </Key>
+          <Property Name="TQ_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MH_ID" Type="bigint" />
+          <Property Name="MHTQ_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="NIEN_KHOA">
+          <Key>
+            <PropertyRef Name="NK_ID" />
+          </Key>
+          <Property Name="NK_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NK_TEN" Type="nvarchar" MaxLength="20" />
+          <Property Name="NK_NAM_BAT_DAU" Type="int" />
+          <Property Name="NK_NAM_KET_THUC" Type="int" />
+        </EntityType>
+        <EntityType Name="PHAN_CONG_GIANG_DAY">
+          <Key>
+            <PropertyRef Name="PCGD_ID" />
+          </Key>
+          <Property Name="PCGD_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NK_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="PHAN_CONG_GIANG_DAY_CHI_TIET">
+          <Key>
+            <PropertyRef Name="PCGDCT_ID" />
+          </Key>
+          <Property Name="PCGDCT_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PCGD_ID" Type="bigint" />
+          <Property Name="LHP_ID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__CHUONG_TR__DT_ID__5EBF139D">
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" Type="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="DT_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+              <PropertyRef Name="DT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__DT_NI__52593CB8">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="DT_NIEN_KHOA_BAT_DAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__DT_NI__534D60F1">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="DT_NIEN_KHOA_KET_THUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__HDT_I__5535A963">
+          <End Role="DM_HE_DAO_TAO" Type="Self.DM_HE_DAO_TAO" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_HE_DAO_TAO">
+              <PropertyRef Name="HDT_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="HDT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__HK_ID__5FB337D6">
+          <End Role="HOC_KY" Type="Self.HOC_KY" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" Type="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOC_KY">
+              <PropertyRef Name="HK_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+              <PropertyRef Name="HK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__MH_ID__60A75C0F">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" Type="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+              <PropertyRef Name="MH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__NGANH__5441852A">
+          <End Role="DM_NGANH" Type="Self.DM_NGANH" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_NGANH">
+              <PropertyRef Name="NGANH_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="NGANH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_DON_VI__DV_CH__014935CB">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="DM_DON_VI1" Type="Self.DM_DON_VI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="DM_DON_VI1">
+              <PropertyRef Name="DV_CHA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_GIO_CH__CD_ID__145C0A3F">
+          <End Role="DM_CHUC_DANH" Type="Self.DM_CHUC_DANH" Multiplicity="0..1" />
+          <End Role="DM_GIO_CHUAN_CHUC_DANH" Type="Self.DM_GIO_CHUAN_CHUC_DANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Principal>
+            <Dependent Role="DM_GIO_CHUAN_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_GIO_CH__CV_ID__22AA2996">
+          <End Role="DM_CHUC_VU" Type="Self.DM_CHUC_VU" Multiplicity="0..1" />
+          <End Role="DM_GIO_CHUAN_CHUC_VU" Type="Self.DM_GIO_CHUAN_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Principal>
+            <Dependent Role="DM_GIO_CHUAN_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_MON_HO__DV_ID__44FF419A">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="DM_MON_HOC">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_MON_HO__HDT_I__440B1D61">
+          <End Role="DM_HE_DAO_TAO" Type="Self.DM_HE_DAO_TAO" Multiplicity="0..1" />
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_HE_DAO_TAO">
+              <PropertyRef Name="HDT_ID" />
+            </Principal>
+            <Dependent Role="DM_MON_HOC">
+              <PropertyRef Name="HDT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_NGANH__DV_ID__2D27B809">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="DM_NGANH" Type="Self.DM_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="DM_NGANH">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GIANG_VIE__DV_ID__060DEAE8">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="GIANG_VIEN">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_D__CD_ID__1A14E395">
+          <End Role="DM_CHUC_DANH" Type="Self.DM_CHUC_DANH" Multiplicity="0..1" />
+          <End Role="GV_CHUC_DANH" Type="Self.GV_CHUC_DANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_D__GV_ID__1920BF5C">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_CHUC_DANH" Type="Self.GV_CHUC_DANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_DANH">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_V__CV_ID__286302EC">
+          <End Role="DM_CHUC_VU" Type="Self.DM_CHUC_VU" Multiplicity="0..1" />
+          <End Role="GV_CHUC_VU" Type="Self.GV_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_V__GV_ID__276EDEB3">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_CHUC_VU" Type="Self.GV_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_VU">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_DON_VI__DV_ID__0BC6C43E">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="GV_DON_VI" Type="Self.GV_DON_VI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="GV_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_DON_VI__GV_ID__0AD2A005">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_DON_VI" Type="Self.GV_DON_VI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_DON_VI">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_GIANG___GV_ID__18EBB532">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_GIANG_DAY" Type="Self.GV_GIANG_DAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_GIANG_DAY">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_GIANG___PCGDC__17F790F9">
+          <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" Type="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" Multiplicity="0..1" />
+          <End Role="GV_GIANG_DAY" Type="Self.GV_GIANG_DAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHAN_CONG_GIANG_DAY_CHI_TIET">
+              <PropertyRef Name="PCGDCT_ID" />
+            </Principal>
+            <Dependent Role="GV_GIANG_DAY">
+              <PropertyRef Name="PCGDCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOA_HOC___KH_ID__36B12243">
+          <End Role="KHOA_HOC" Type="Self.KHOA_HOC" Multiplicity="0..1" />
+          <End Role="KHOA_HOC_NIEN_KHOA" Type="Self.KHOA_HOC_NIEN_KHOA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA_HOC">
+              <PropertyRef Name="KH_ID" />
+            </Principal>
+            <Dependent Role="KHOA_HOC_NIEN_KHOA">
+              <PropertyRef Name="KH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOA_HOC___NK_ID__37A5467C">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="KHOA_HOC_NIEN_KHOA" Type="Self.KHOA_HOC_NIEN_KHOA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="KHOA_HOC_NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_CHUYE__GV_ID__74AE54BC">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="LOP_CHUYEN_NGANH" Type="Self.LOP_CHUYEN_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="LOP_CHUYEN_NGANH">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_CHUYE__KH_ID__72C60C4A">
+          <End Role="KHOA_HOC" Type="Self.KHOA_HOC" Multiplicity="0..1" />
+          <End Role="LOP_CHUYEN_NGANH" Type="Self.LOP_CHUYEN_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA_HOC">
+              <PropertyRef Name="KH_ID" />
+            </Principal>
+            <Dependent Role="LOP_CHUYEN_NGANH">
+              <PropertyRef Name="KH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_CHUYE__NGANH__73BA3083">
+          <End Role="DM_NGANH" Type="Self.DM_NGANH" Multiplicity="0..1" />
+          <End Role="LOP_CHUYEN_NGANH" Type="Self.LOP_CHUYEN_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_NGANH">
+              <PropertyRef Name="NGANH_ID" />
+            </Principal>
+            <Dependent Role="LOP_CHUYEN_NGANH">
+              <PropertyRef Name="NGANH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_HOC_P__LHP_I__7E37BEF6">
+          <End Role="LOP_HOC_PHAN" Type="Self.LOP_HOC_PHAN" Multiplicity="0..1" />
+          <End Role="LOP_HOC_PHAN_CHI_TIET" Type="Self.LOP_HOC_PHAN_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOP_HOC_PHAN">
+              <PropertyRef Name="LHP_ID" />
+            </Principal>
+            <Dependent Role="LOP_HOC_PHAN_CHI_TIET">
+              <PropertyRef Name="LHP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_HOC_P__MH_ID__797309D9">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="LOP_HOC_PHAN" Type="Self.LOP_HOC_PHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="LOP_HOC_PHAN">
+              <PropertyRef Name="MH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MH_TIEN_Q__MH_ID__4CA06362">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="MH_TIEN_QUYET" Type="Self.MH_TIEN_QUYET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="MH_TIEN_QUYET">
+              <PropertyRef Name="MH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MH_TIEN_Q__MHTQ___4D94879B">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="MH_TIEN_QUYET" Type="Self.MH_TIEN_QUYET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="MH_TIEN_QUYET">
+              <PropertyRef Name="MHTQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHAN_CONG__LHP_I__1332DBDC">
+          <End Role="LOP_HOC_PHAN" Type="Self.LOP_HOC_PHAN" Multiplicity="0..1" />
+          <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" Type="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOP_HOC_PHAN">
+              <PropertyRef Name="LHP_ID" />
+            </Principal>
+            <Dependent Role="PHAN_CONG_GIANG_DAY_CHI_TIET">
+              <PropertyRef Name="LHP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHAN_CONG__NK_ID__0D7A0286">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="PHAN_CONG_GIANG_DAY" Type="Self.PHAN_CONG_GIANG_DAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="PHAN_CONG_GIANG_DAY">
+              <PropertyRef Name="NK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHAN_CONG__PCGD___123EB7A3">
+          <End Role="PHAN_CONG_GIANG_DAY" Type="Self.PHAN_CONG_GIANG_DAY" Multiplicity="0..1" />
+          <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" Type="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHAN_CONG_GIANG_DAY">
+              <PropertyRef Name="PCGD_ID" />
+            </Principal>
+            <Dependent Role="PHAN_CONG_GIANG_DAY_CHI_TIET">
+              <PropertyRef Name="PCGD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1" />
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QuanLyDaoTaoStoreContainer">
+          <EntitySet Name="CHUONG_TRINH_DAO_TAO" EntityType="Self.CHUONG_TRINH_DAO_TAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntityType="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_CHUC_DANH" EntityType="Self.DM_CHUC_DANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_CHUC_VU" EntityType="Self.DM_CHUC_VU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_DON_VI" EntityType="Self.DM_DON_VI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_GIO_CHUAN_CHUC_DANH" EntityType="Self.DM_GIO_CHUAN_CHUC_DANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_GIO_CHUAN_CHUC_VU" EntityType="Self.DM_GIO_CHUAN_CHUC_VU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_HE_DAO_TAO" EntityType="Self.DM_HE_DAO_TAO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_MON_HOC" EntityType="Self.DM_MON_HOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DM_NGANH" EntityType="Self.DM_NGANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GIANG_VIEN" EntityType="Self.GIANG_VIEN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GV_CHUC_DANH" EntityType="Self.GV_CHUC_DANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GV_CHUC_VU" EntityType="Self.GV_CHUC_VU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GV_DON_VI" EntityType="Self.GV_DON_VI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GV_GIANG_DAY" EntityType="Self.GV_GIANG_DAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOC_KY" EntityType="Self.HOC_KY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOA_HOC" EntityType="Self.KHOA_HOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KHOA_HOC_NIEN_KHOA" EntityType="Self.KHOA_HOC_NIEN_KHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOP_CHUYEN_NGANH" EntityType="Self.LOP_CHUYEN_NGANH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOP_HOC_PHAN" EntityType="Self.LOP_HOC_PHAN" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOP_HOC_PHAN_CHI_TIET" EntityType="Self.LOP_HOC_PHAN_CHI_TIET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MH_TIEN_QUYET" EntityType="Self.MH_TIEN_QUYET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NIEN_KHOA" EntityType="Self.NIEN_KHOA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHAN_CONG_GIANG_DAY" EntityType="Self.PHAN_CONG_GIANG_DAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PHAN_CONG_GIANG_DAY_CHI_TIET" EntityType="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__CHUONG_TR__DT_ID__5EBF139D" Association="Self.FK__CHUONG_TR__DT_ID__5EBF139D">
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+            <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntitySet="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__DT_NI__52593CB8" Association="Self.FK__CHUONG_TR__DT_NI__52593CB8">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__DT_NI__534D60F1" Association="Self.FK__CHUONG_TR__DT_NI__534D60F1">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__HDT_I__5535A963" Association="Self.FK__CHUONG_TR__HDT_I__5535A963">
+            <End Role="DM_HE_DAO_TAO" EntitySet="DM_HE_DAO_TAO" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__HK_ID__5FB337D6" Association="Self.FK__CHUONG_TR__HK_ID__5FB337D6">
+            <End Role="HOC_KY" EntitySet="HOC_KY" />
+            <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntitySet="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__MH_ID__60A75C0F" Association="Self.FK__CHUONG_TR__MH_ID__60A75C0F">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntitySet="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__NGANH__5441852A" Association="Self.FK__CHUONG_TR__NGANH__5441852A">
+            <End Role="DM_NGANH" EntitySet="DM_NGANH" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_DON_VI__DV_CH__014935CB" Association="Self.FK__DM_DON_VI__DV_CH__014935CB">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_DON_VI1" EntitySet="DM_DON_VI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_GIO_CH__CD_ID__145C0A3F" Association="Self.FK__DM_GIO_CH__CD_ID__145C0A3F">
+            <End Role="DM_CHUC_DANH" EntitySet="DM_CHUC_DANH" />
+            <End Role="DM_GIO_CHUAN_CHUC_DANH" EntitySet="DM_GIO_CHUAN_CHUC_DANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_GIO_CH__CV_ID__22AA2996" Association="Self.FK__DM_GIO_CH__CV_ID__22AA2996">
+            <End Role="DM_CHUC_VU" EntitySet="DM_CHUC_VU" />
+            <End Role="DM_GIO_CHUAN_CHUC_VU" EntitySet="DM_GIO_CHUAN_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_MON_HO__DV_ID__44FF419A" Association="Self.FK__DM_MON_HO__DV_ID__44FF419A">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_MON_HO__HDT_I__440B1D61" Association="Self.FK__DM_MON_HO__HDT_I__440B1D61">
+            <End Role="DM_HE_DAO_TAO" EntitySet="DM_HE_DAO_TAO" />
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_NGANH__DV_ID__2D27B809" Association="Self.FK__DM_NGANH__DV_ID__2D27B809">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_NGANH" EntitySet="DM_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GIANG_VIE__DV_ID__060DEAE8" Association="Self.FK__GIANG_VIE__DV_ID__060DEAE8">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_D__CD_ID__1A14E395" Association="Self.FK__GV_CHUC_D__CD_ID__1A14E395">
+            <End Role="DM_CHUC_DANH" EntitySet="DM_CHUC_DANH" />
+            <End Role="GV_CHUC_DANH" EntitySet="GV_CHUC_DANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_D__GV_ID__1920BF5C" Association="Self.FK__GV_CHUC_D__GV_ID__1920BF5C">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_CHUC_DANH" EntitySet="GV_CHUC_DANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_V__CV_ID__286302EC" Association="Self.FK__GV_CHUC_V__CV_ID__286302EC">
+            <End Role="DM_CHUC_VU" EntitySet="DM_CHUC_VU" />
+            <End Role="GV_CHUC_VU" EntitySet="GV_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_V__GV_ID__276EDEB3" Association="Self.FK__GV_CHUC_V__GV_ID__276EDEB3">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_CHUC_VU" EntitySet="GV_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_DON_VI__DV_ID__0BC6C43E" Association="Self.FK__GV_DON_VI__DV_ID__0BC6C43E">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GV_DON_VI" EntitySet="GV_DON_VI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_DON_VI__GV_ID__0AD2A005" Association="Self.FK__GV_DON_VI__GV_ID__0AD2A005">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_DON_VI" EntitySet="GV_DON_VI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_GIANG___GV_ID__18EBB532" Association="Self.FK__GV_GIANG___GV_ID__18EBB532">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_GIANG_DAY" EntitySet="GV_GIANG_DAY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_GIANG___PCGDC__17F790F9" Association="Self.FK__GV_GIANG___PCGDC__17F790F9">
+            <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" EntitySet="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+            <End Role="GV_GIANG_DAY" EntitySet="GV_GIANG_DAY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOA_HOC___KH_ID__36B12243" Association="Self.FK__KHOA_HOC___KH_ID__36B12243">
+            <End Role="KHOA_HOC" EntitySet="KHOA_HOC" />
+            <End Role="KHOA_HOC_NIEN_KHOA" EntitySet="KHOA_HOC_NIEN_KHOA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOA_HOC___NK_ID__37A5467C" Association="Self.FK__KHOA_HOC___NK_ID__37A5467C">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="KHOA_HOC_NIEN_KHOA" EntitySet="KHOA_HOC_NIEN_KHOA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_CHUYE__GV_ID__74AE54BC" Association="Self.FK__LOP_CHUYE__GV_ID__74AE54BC">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="LOP_CHUYEN_NGANH" EntitySet="LOP_CHUYEN_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_CHUYE__KH_ID__72C60C4A" Association="Self.FK__LOP_CHUYE__KH_ID__72C60C4A">
+            <End Role="KHOA_HOC" EntitySet="KHOA_HOC" />
+            <End Role="LOP_CHUYEN_NGANH" EntitySet="LOP_CHUYEN_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_CHUYE__NGANH__73BA3083" Association="Self.FK__LOP_CHUYE__NGANH__73BA3083">
+            <End Role="DM_NGANH" EntitySet="DM_NGANH" />
+            <End Role="LOP_CHUYEN_NGANH" EntitySet="LOP_CHUYEN_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_HOC_P__LHP_I__7E37BEF6" Association="Self.FK__LOP_HOC_P__LHP_I__7E37BEF6">
+            <End Role="LOP_HOC_PHAN" EntitySet="LOP_HOC_PHAN" />
+            <End Role="LOP_HOC_PHAN_CHI_TIET" EntitySet="LOP_HOC_PHAN_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_HOC_P__MH_ID__797309D9" Association="Self.FK__LOP_HOC_P__MH_ID__797309D9">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="LOP_HOC_PHAN" EntitySet="LOP_HOC_PHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MH_TIEN_Q__MH_ID__4CA06362" Association="Self.FK__MH_TIEN_Q__MH_ID__4CA06362">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="MH_TIEN_QUYET" EntitySet="MH_TIEN_QUYET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MH_TIEN_Q__MHTQ___4D94879B" Association="Self.FK__MH_TIEN_Q__MHTQ___4D94879B">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="MH_TIEN_QUYET" EntitySet="MH_TIEN_QUYET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHAN_CONG__LHP_I__1332DBDC" Association="Self.FK__PHAN_CONG__LHP_I__1332DBDC">
+            <End Role="LOP_HOC_PHAN" EntitySet="LOP_HOC_PHAN" />
+            <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" EntitySet="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHAN_CONG__NK_ID__0D7A0286" Association="Self.FK__PHAN_CONG__NK_ID__0D7A0286">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="PHAN_CONG_GIANG_DAY" EntitySet="PHAN_CONG_GIANG_DAY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHAN_CONG__PCGD___123EB7A3" Association="Self.FK__PHAN_CONG__PCGD___123EB7A3">
+            <End Role="PHAN_CONG_GIANG_DAY" EntitySet="PHAN_CONG_GIANG_DAY" />
+            <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" EntitySet="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QuanLyDaoTao" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CHUONG_TRINH_DAO_TAO">
+          <Key>
+            <PropertyRef Name="DT_ID" />
+          </Key>
+          <Property Name="DT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DT_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DT_TEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DT_NIEN_KHOA_BAT_DAU" Type="Int64" />
+          <Property Name="DT_NIEN_KHOA_KET_THUC" Type="Int64" />
+          <Property Name="DT_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NGANH_ID" Type="Int64" />
+          <Property Name="HDT_ID" Type="Int64" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO_CHI_TIET" Relationship="Self.FK__CHUONG_TR__DT_ID__5EBF139D" FromRole="CHUONG_TRINH_DAO_TAO" ToRole="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          <NavigationProperty Name="NIEN_KHOA" Relationship="Self.FK__CHUONG_TR__DT_NI__52593CB8" FromRole="CHUONG_TRINH_DAO_TAO" ToRole="NIEN_KHOA" />
+          <NavigationProperty Name="NIEN_KHOA1" Relationship="Self.FK__CHUONG_TR__DT_NI__534D60F1" FromRole="CHUONG_TRINH_DAO_TAO" ToRole="NIEN_KHOA" />
+          <NavigationProperty Name="DM_HE_DAO_TAO" Relationship="Self.FK__CHUONG_TR__HDT_I__5535A963" FromRole="CHUONG_TRINH_DAO_TAO" ToRole="DM_HE_DAO_TAO" />
+          <NavigationProperty Name="DM_NGANH" Relationship="Self.FK__CHUONG_TR__NGANH__5441852A" FromRole="CHUONG_TRINH_DAO_TAO" ToRole="DM_NGANH" />
+        </EntityType>
+        <EntityType Name="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+          <Key>
+            <PropertyRef Name="DTCT_ID" />
+          </Key>
+          <Property Name="DTCT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DTCT_BAT_BUOC" Type="Boolean" />
+          <Property Name="DT_ID" Type="Int64" />
+          <Property Name="HK_ID" Type="Int64" />
+          <Property Name="MH_ID" Type="Int64" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO" Relationship="Self.FK__CHUONG_TR__DT_ID__5EBF139D" FromRole="CHUONG_TRINH_DAO_TAO_CHI_TIET" ToRole="CHUONG_TRINH_DAO_TAO" />
+          <NavigationProperty Name="HOC_KY" Relationship="Self.FK__CHUONG_TR__HK_ID__5FB337D6" FromRole="CHUONG_TRINH_DAO_TAO_CHI_TIET" ToRole="HOC_KY" />
+          <NavigationProperty Name="DM_MON_HOC" Relationship="Self.FK__CHUONG_TR__MH_ID__60A75C0F" FromRole="CHUONG_TRINH_DAO_TAO_CHI_TIET" ToRole="DM_MON_HOC" />
+        </EntityType>
+        <EntityType Name="DM_CHUC_DANH">
+          <Key>
+            <PropertyRef Name="CD_ID" />
+          </Key>
+          <Property Name="CD_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CD_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CD_TEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CD_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_GIO_CHUAN_CHUC_DANH" Relationship="Self.FK__DM_GIO_CH__CD_ID__145C0A3F" FromRole="DM_CHUC_DANH" ToRole="DM_GIO_CHUAN_CHUC_DANH" />
+          <NavigationProperty Name="GV_CHUC_DANH" Relationship="Self.FK__GV_CHUC_D__CD_ID__1A14E395" FromRole="DM_CHUC_DANH" ToRole="GV_CHUC_DANH" />
+        </EntityType>
+        <EntityType Name="DM_CHUC_VU">
+          <Key>
+            <PropertyRef Name="CV_ID" />
+          </Key>
+          <Property Name="CV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CV_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CV_TEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="CV_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_GIO_CHUAN_CHUC_VU" Relationship="Self.FK__DM_GIO_CH__CV_ID__22AA2996" FromRole="DM_CHUC_VU" ToRole="DM_GIO_CHUAN_CHUC_VU" />
+          <NavigationProperty Name="GV_CHUC_VU" Relationship="Self.FK__GV_CHUC_V__CV_ID__286302EC" FromRole="DM_CHUC_VU" ToRole="GV_CHUC_VU" />
+        </EntityType>
+        <EntityType Name="DM_DON_VI">
+          <Key>
+            <PropertyRef Name="DV_ID" />
+          </Key>
+          <Property Name="DV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DV_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DV_TEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DV_CHA_ID" Type="Int64" />
+          <Property Name="DV_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_DON_VI1" Relationship="Self.FK__DM_DON_VI__DV_CH__014935CB" FromRole="DM_DON_VI" ToRole="DM_DON_VI1" />
+          <NavigationProperty Name="DM_DON_VI2" Relationship="Self.FK__DM_DON_VI__DV_CH__014935CB" FromRole="DM_DON_VI1" ToRole="DM_DON_VI" />
+          <NavigationProperty Name="DM_MON_HOC" Relationship="Self.FK__DM_MON_HO__DV_ID__44FF419A" FromRole="DM_DON_VI" ToRole="DM_MON_HOC" />
+          <NavigationProperty Name="DM_NGANH" Relationship="Self.FK__DM_NGANH__DV_ID__2D27B809" FromRole="DM_DON_VI" ToRole="DM_NGANH" />
+          <NavigationProperty Name="GIANG_VIEN" Relationship="Self.FK__GIANG_VIE__DV_ID__060DEAE8" FromRole="DM_DON_VI" ToRole="GIANG_VIEN" />
+          <NavigationProperty Name="GV_DON_VI" Relationship="Self.FK__GV_DON_VI__DV_ID__0BC6C43E" FromRole="DM_DON_VI" ToRole="GV_DON_VI" />
+        </EntityType>
+        <EntityType Name="DM_GIO_CHUAN_CHUC_DANH">
+          <Key>
+            <PropertyRef Name="GCCD_ID" />
+          </Key>
+          <Property Name="GCCD_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CD_ID" Type="Int64" />
+          <Property Name="GCCD_SO_GIO" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="GCCD_NGAY_AP_DUNG" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DM_CHUC_DANH" Relationship="Self.FK__DM_GIO_CH__CD_ID__145C0A3F" FromRole="DM_GIO_CHUAN_CHUC_DANH" ToRole="DM_CHUC_DANH" />
+        </EntityType>
+        <EntityType Name="DM_GIO_CHUAN_CHUC_VU">
+          <Key>
+            <PropertyRef Name="GCCV_ID" />
+          </Key>
+          <Property Name="GCCV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CV_ID" Type="Int64" />
+          <Property Name="GCCV_PHAN_TRAM" Type="Decimal" Precision="18" Scale="6" />
+          <Property Name="GCCV_NGAY_AP_DUNG" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DM_CHUC_VU" Relationship="Self.FK__DM_GIO_CH__CV_ID__22AA2996" FromRole="DM_GIO_CHUAN_CHUC_VU" ToRole="DM_CHUC_VU" />
+        </EntityType>
+        <EntityType Name="DM_HE_DAO_TAO">
+          <Key>
+            <PropertyRef Name="HDT_ID" />
+          </Key>
+          <Property Name="HDT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HDT_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="HDT_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HDT_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO" Relationship="Self.FK__CHUONG_TR__HDT_I__5535A963" FromRole="DM_HE_DAO_TAO" ToRole="CHUONG_TRINH_DAO_TAO" />
+          <NavigationProperty Name="DM_MON_HOC" Relationship="Self.FK__DM_MON_HO__HDT_I__440B1D61" FromRole="DM_HE_DAO_TAO" ToRole="DM_MON_HOC" />
+        </EntityType>
+        <EntityType Name="DM_MON_HOC">
+          <Key>
+            <PropertyRef Name="MH_ID" />
+          </Key>
+          <Property Name="MH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MH_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MH_TEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MH_SO_TIN_CHI" Type="Int32" />
+          <Property Name="MH_SO_LY_THUYET" Type="Int32" />
+          <Property Name="MH_SO_THUC_HANH" Type="Int32" />
+          <Property Name="HDT_ID" Type="Int64" />
+          <Property Name="DV_ID" Type="Int64" />
+          <Property Name="MH_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO_CHI_TIET" Relationship="Self.FK__CHUONG_TR__MH_ID__60A75C0F" FromRole="DM_MON_HOC" ToRole="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          <NavigationProperty Name="DM_DON_VI" Relationship="Self.FK__DM_MON_HO__DV_ID__44FF419A" FromRole="DM_MON_HOC" ToRole="DM_DON_VI" />
+          <NavigationProperty Name="DM_HE_DAO_TAO" Relationship="Self.FK__DM_MON_HO__HDT_I__440B1D61" FromRole="DM_MON_HOC" ToRole="DM_HE_DAO_TAO" />
+          <NavigationProperty Name="LOP_HOC_PHAN" Relationship="Self.FK__LOP_HOC_P__MH_ID__797309D9" FromRole="DM_MON_HOC" ToRole="LOP_HOC_PHAN" />
+          <NavigationProperty Name="MH_TIEN_QUYET" Relationship="Self.FK__MH_TIEN_Q__MH_ID__4CA06362" FromRole="DM_MON_HOC" ToRole="MH_TIEN_QUYET" />
+          <NavigationProperty Name="MH_TIEN_QUYET1" Relationship="Self.FK__MH_TIEN_Q__MHTQ___4D94879B" FromRole="DM_MON_HOC" ToRole="MH_TIEN_QUYET" />
+        </EntityType>
+        <EntityType Name="DM_NGANH">
+          <Key>
+            <PropertyRef Name="NGANH_ID" />
+          </Key>
+          <Property Name="NGANH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NGANH_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NGANH_TEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="NGANH_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DV_ID" Type="Int64" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO" Relationship="Self.FK__CHUONG_TR__NGANH__5441852A" FromRole="DM_NGANH" ToRole="CHUONG_TRINH_DAO_TAO" />
+          <NavigationProperty Name="DM_DON_VI" Relationship="Self.FK__DM_NGANH__DV_ID__2D27B809" FromRole="DM_NGANH" ToRole="DM_DON_VI" />
+          <NavigationProperty Name="LOP_CHUYEN_NGANH" Relationship="Self.FK__LOP_CHUYE__NGANH__73BA3083" FromRole="DM_NGANH" ToRole="LOP_CHUYEN_NGANH" />
+        </EntityType>
+        <EntityType Name="GIANG_VIEN">
+          <Key>
+            <PropertyRef Name="GV_ID" />
+          </Key>
+          <Property Name="GV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GV_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="GV_HOTEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GV_GIOITINH" Type="Boolean" />
+          <Property Name="GV_NGAYSINH" Type="DateTime" Precision="0" />
+          <Property Name="GV_NGAY_BAT_DAU" Type="DateTime" Precision="3" />
+          <Property Name="GV_NGAY_KET_THUC" Type="DateTime" Precision="3" />
+          <Property Name="GV_DIACHI" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="GV_EMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GV_SDT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DV_ID" Type="Int64" />
+          <NavigationProperty Name="DM_DON_VI" Relationship="Self.FK__GIANG_VIE__DV_ID__060DEAE8" FromRole="GIANG_VIEN" ToRole="DM_DON_VI" />
+          <NavigationProperty Name="GV_CHUC_DANH" Relationship="Self.FK__GV_CHUC_D__GV_ID__1920BF5C" FromRole="GIANG_VIEN" ToRole="GV_CHUC_DANH" />
+          <NavigationProperty Name="GV_CHUC_VU" Relationship="Self.FK__GV_CHUC_V__GV_ID__276EDEB3" FromRole="GIANG_VIEN" ToRole="GV_CHUC_VU" />
+          <NavigationProperty Name="GV_DON_VI" Relationship="Self.FK__GV_DON_VI__GV_ID__0AD2A005" FromRole="GIANG_VIEN" ToRole="GV_DON_VI" />
+          <NavigationProperty Name="GV_GIANG_DAY" Relationship="Self.FK__GV_GIANG___GV_ID__18EBB532" FromRole="GIANG_VIEN" ToRole="GV_GIANG_DAY" />
+          <NavigationProperty Name="LOP_CHUYEN_NGANH" Relationship="Self.FK__LOP_CHUYE__GV_ID__74AE54BC" FromRole="GIANG_VIEN" ToRole="LOP_CHUYEN_NGANH" />
+        </EntityType>
+        <EntityType Name="GV_CHUC_DANH">
+          <Key>
+            <PropertyRef Name="GVCD_ID" />
+          </Key>
+          <Property Name="GVCD_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GV_ID" Type="Int64" />
+          <Property Name="CD_ID" Type="Int64" />
+          <Property Name="GVCD_NGAY_BAT_DAU" Type="DateTime" Precision="3" />
+          <Property Name="GVCD_NGAY_KET_THUC" Type="DateTime" Precision="3" />
+          <Property Name="GVCD_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_CHUC_DANH" Relationship="Self.FK__GV_CHUC_D__CD_ID__1A14E395" FromRole="GV_CHUC_DANH" ToRole="DM_CHUC_DANH" />
+          <NavigationProperty Name="GIANG_VIEN" Relationship="Self.FK__GV_CHUC_D__GV_ID__1920BF5C" FromRole="GV_CHUC_DANH" ToRole="GIANG_VIEN" />
+        </EntityType>
+        <EntityType Name="GV_CHUC_VU">
+          <Key>
+            <PropertyRef Name="GVCV_ID" />
+          </Key>
+          <Property Name="GVCV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GV_ID" Type="Int64" />
+          <Property Name="CV_ID" Type="Int64" />
+          <Property Name="GVCV_NGAY_BAT_DAU" Type="DateTime" Precision="3" />
+          <Property Name="GVCV_NGAY_KET_THUC" Type="DateTime" Precision="3" />
+          <Property Name="GVCV_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_CHUC_VU" Relationship="Self.FK__GV_CHUC_V__CV_ID__286302EC" FromRole="GV_CHUC_VU" ToRole="DM_CHUC_VU" />
+          <NavigationProperty Name="GIANG_VIEN" Relationship="Self.FK__GV_CHUC_V__GV_ID__276EDEB3" FromRole="GV_CHUC_VU" ToRole="GIANG_VIEN" />
+        </EntityType>
+        <EntityType Name="GV_DON_VI">
+          <Key>
+            <PropertyRef Name="GVDV_ID" />
+          </Key>
+          <Property Name="GVDV_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GV_ID" Type="Int64" />
+          <Property Name="DV_ID" Type="Int64" />
+          <Property Name="GVDV_NGAY_BAT_DAU" Type="DateTime" Precision="3" />
+          <Property Name="GVDV_NGAY_KET_THUC" Type="DateTime" Precision="3" />
+          <Property Name="GVDV_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DM_DON_VI" Relationship="Self.FK__GV_DON_VI__DV_ID__0BC6C43E" FromRole="GV_DON_VI" ToRole="DM_DON_VI" />
+          <NavigationProperty Name="GIANG_VIEN" Relationship="Self.FK__GV_DON_VI__GV_ID__0AD2A005" FromRole="GV_DON_VI" ToRole="GIANG_VIEN" />
+        </EntityType>
+        <EntityType Name="GV_GIANG_DAY">
+          <Key>
+            <PropertyRef Name="GVGD_ID" />
+          </Key>
+          <Property Name="GVGD_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GVGD_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PCGDCT_ID" Type="Int64" />
+          <Property Name="GV_ID" Type="Int64" />
+          <NavigationProperty Name="GIANG_VIEN" Relationship="Self.FK__GV_GIANG___GV_ID__18EBB532" FromRole="GV_GIANG_DAY" ToRole="GIANG_VIEN" />
+          <NavigationProperty Name="PHAN_CONG_GIANG_DAY_CHI_TIET" Relationship="Self.FK__GV_GIANG___PCGDC__17F790F9" FromRole="GV_GIANG_DAY" ToRole="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+        </EntityType>
+        <EntityType Name="HOC_KY">
+          <Key>
+            <PropertyRef Name="HK_ID" />
+          </Key>
+          <Property Name="HK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HK_STT" Type="Int32" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO_CHI_TIET" Relationship="Self.FK__CHUONG_TR__HK_ID__5FB337D6" FromRole="HOC_KY" ToRole="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+        </EntityType>
+        <EntityType Name="KHOA_HOC">
+          <Key>
+            <PropertyRef Name="KH_ID" />
+          </Key>
+          <Property Name="KH_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KH_TEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KH_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="KHOA_HOC_NIEN_KHOA" Relationship="Self.FK__KHOA_HOC___KH_ID__36B12243" FromRole="KHOA_HOC" ToRole="KHOA_HOC_NIEN_KHOA" />
+          <NavigationProperty Name="LOP_CHUYEN_NGANH" Relationship="Self.FK__LOP_CHUYE__KH_ID__72C60C4A" FromRole="KHOA_HOC" ToRole="LOP_CHUYEN_NGANH" />
+        </EntityType>
+        <EntityType Name="KHOA_HOC_NIEN_KHOA">
+          <Key>
+            <PropertyRef Name="KHNK_ID" />
+          </Key>
+          <Property Name="KHNK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KH_ID" Type="Int64" />
+          <Property Name="NK_ID" Type="Int64" />
+          <NavigationProperty Name="KHOA_HOC" Relationship="Self.FK__KHOA_HOC___KH_ID__36B12243" FromRole="KHOA_HOC_NIEN_KHOA" ToRole="KHOA_HOC" />
+          <NavigationProperty Name="NIEN_KHOA" Relationship="Self.FK__KHOA_HOC___NK_ID__37A5467C" FromRole="KHOA_HOC_NIEN_KHOA" ToRole="NIEN_KHOA" />
+        </EntityType>
+        <EntityType Name="LOP_CHUYEN_NGANH">
+          <Key>
+            <PropertyRef Name="LOP_ID" />
+          </Key>
+          <Property Name="LOP_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LOP_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LOP_TEN" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="LOP_SI_SO" Type="Int32" />
+          <Property Name="LOP_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="KH_ID" Type="Int64" />
+          <Property Name="NGANH_ID" Type="Int64" />
+          <Property Name="GV_ID" Type="Int64" />
+          <NavigationProperty Name="DM_NGANH" Relationship="Self.FK__LOP_CHUYE__NGANH__73BA3083" FromRole="LOP_CHUYEN_NGANH" ToRole="DM_NGANH" />
+          <NavigationProperty Name="GIANG_VIEN" Relationship="Self.FK__LOP_CHUYE__GV_ID__74AE54BC" FromRole="LOP_CHUYEN_NGANH" ToRole="GIANG_VIEN" />
+          <NavigationProperty Name="KHOA_HOC" Relationship="Self.FK__LOP_CHUYE__KH_ID__72C60C4A" FromRole="LOP_CHUYEN_NGANH" ToRole="KHOA_HOC" />
+        </EntityType>
+        <EntityType Name="LOP_HOC_PHAN">
+          <Key>
+            <PropertyRef Name="LHP_ID" />
+          </Key>
+          <Property Name="LHP_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LHP_MA" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LHP_GHI_CHU" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="MH_ID" Type="Int64" />
+          <NavigationProperty Name="DM_MON_HOC" Relationship="Self.FK__LOP_HOC_P__MH_ID__797309D9" FromRole="LOP_HOC_PHAN" ToRole="DM_MON_HOC" />
+          <NavigationProperty Name="LOP_HOC_PHAN_CHI_TIET" Relationship="Self.FK__LOP_HOC_P__LHP_I__7E37BEF6" FromRole="LOP_HOC_PHAN" ToRole="LOP_HOC_PHAN_CHI_TIET" />
+          <NavigationProperty Name="PHAN_CONG_GIANG_DAY_CHI_TIET" Relationship="Self.FK__PHAN_CONG__LHP_I__1332DBDC" FromRole="LOP_HOC_PHAN" ToRole="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+        </EntityType>
+        <EntityType Name="LOP_HOC_PHAN_CHI_TIET">
+          <Key>
+            <PropertyRef Name="LHPCT_ID" />
+          </Key>
+          <Property Name="LHPCT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LHPCT_SI_SO" Type="Int32" />
+          <Property Name="LHP_ID" Type="Int64" />
+          <NavigationProperty Name="LOP_HOC_PHAN" Relationship="Self.FK__LOP_HOC_P__LHP_I__7E37BEF6" FromRole="LOP_HOC_PHAN_CHI_TIET" ToRole="LOP_HOC_PHAN" />
+        </EntityType>
+        <EntityType Name="MH_TIEN_QUYET">
+          <Key>
+            <PropertyRef Name="TQ_ID" />
+          </Key>
+          <Property Name="TQ_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MH_ID" Type="Int64" />
+          <Property Name="MHTQ_ID" Type="Int64" />
+          <NavigationProperty Name="DM_MON_HOC" Relationship="Self.FK__MH_TIEN_Q__MH_ID__4CA06362" FromRole="MH_TIEN_QUYET" ToRole="DM_MON_HOC" />
+          <NavigationProperty Name="DM_MON_HOC1" Relationship="Self.FK__MH_TIEN_Q__MHTQ___4D94879B" FromRole="MH_TIEN_QUYET" ToRole="DM_MON_HOC" />
+        </EntityType>
+        <EntityType Name="NIEN_KHOA">
+          <Key>
+            <PropertyRef Name="NK_ID" />
+          </Key>
+          <Property Name="NK_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NK_TEN" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NK_NAM_BAT_DAU" Type="Int32" />
+          <Property Name="NK_NAM_KET_THUC" Type="Int32" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO" Relationship="Self.FK__CHUONG_TR__DT_NI__52593CB8" FromRole="NIEN_KHOA" ToRole="CHUONG_TRINH_DAO_TAO" />
+          <NavigationProperty Name="CHUONG_TRINH_DAO_TAO1" Relationship="Self.FK__CHUONG_TR__DT_NI__534D60F1" FromRole="NIEN_KHOA" ToRole="CHUONG_TRINH_DAO_TAO" />
+          <NavigationProperty Name="KHOA_HOC_NIEN_KHOA" Relationship="Self.FK__KHOA_HOC___NK_ID__37A5467C" FromRole="NIEN_KHOA" ToRole="KHOA_HOC_NIEN_KHOA" />
+          <NavigationProperty Name="PHAN_CONG_GIANG_DAY" Relationship="Self.FK__PHAN_CONG__NK_ID__0D7A0286" FromRole="NIEN_KHOA" ToRole="PHAN_CONG_GIANG_DAY" />
+        </EntityType>
+        <EntityType Name="PHAN_CONG_GIANG_DAY">
+          <Key>
+            <PropertyRef Name="PCGD_ID" />
+          </Key>
+          <Property Name="PCGD_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NK_ID" Type="Int64" />
+          <NavigationProperty Name="NIEN_KHOA" Relationship="Self.FK__PHAN_CONG__NK_ID__0D7A0286" FromRole="PHAN_CONG_GIANG_DAY" ToRole="NIEN_KHOA" />
+          <NavigationProperty Name="PHAN_CONG_GIANG_DAY_CHI_TIET" Relationship="Self.FK__PHAN_CONG__PCGD___123EB7A3" FromRole="PHAN_CONG_GIANG_DAY" ToRole="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+        </EntityType>
+        <EntityType Name="PHAN_CONG_GIANG_DAY_CHI_TIET">
+          <Key>
+            <PropertyRef Name="PCGDCT_ID" />
+          </Key>
+          <Property Name="PCGDCT_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PCGD_ID" Type="Int64" />
+          <Property Name="LHP_ID" Type="Int64" />
+          <NavigationProperty Name="GV_GIANG_DAY" Relationship="Self.FK__GV_GIANG___PCGDC__17F790F9" FromRole="PHAN_CONG_GIANG_DAY_CHI_TIET" ToRole="GV_GIANG_DAY" />
+          <NavigationProperty Name="LOP_HOC_PHAN" Relationship="Self.FK__PHAN_CONG__LHP_I__1332DBDC" FromRole="PHAN_CONG_GIANG_DAY_CHI_TIET" ToRole="LOP_HOC_PHAN" />
+          <NavigationProperty Name="PHAN_CONG_GIANG_DAY" Relationship="Self.FK__PHAN_CONG__PCGD___123EB7A3" FromRole="PHAN_CONG_GIANG_DAY_CHI_TIET" ToRole="PHAN_CONG_GIANG_DAY" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="56" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="webpages_Roles" Relationship="Self.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProviderUserId" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UserProfiles" Relationship="Self.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <Association Name="FK__CHUONG_TR__DT_ID__5EBF139D">
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" Type="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="DT_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+              <PropertyRef Name="DT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__DT_NI__52593CB8">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="DT_NIEN_KHOA_BAT_DAU" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__DT_NI__534D60F1">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="DT_NIEN_KHOA_KET_THUC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__HDT_I__5535A963">
+          <End Role="DM_HE_DAO_TAO" Type="Self.DM_HE_DAO_TAO" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_HE_DAO_TAO">
+              <PropertyRef Name="HDT_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="HDT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__NGANH__5441852A">
+          <End Role="DM_NGANH" Type="Self.DM_NGANH" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO" Type="Self.CHUONG_TRINH_DAO_TAO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_NGANH">
+              <PropertyRef Name="NGANH_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO">
+              <PropertyRef Name="NGANH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__HK_ID__5FB337D6">
+          <End Role="HOC_KY" Type="Self.HOC_KY" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" Type="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HOC_KY">
+              <PropertyRef Name="HK_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+              <PropertyRef Name="HK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CHUONG_TR__MH_ID__60A75C0F">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" Type="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+              <PropertyRef Name="MH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_GIO_CH__CD_ID__145C0A3F">
+          <End Role="DM_CHUC_DANH" Type="Self.DM_CHUC_DANH" Multiplicity="0..1" />
+          <End Role="DM_GIO_CHUAN_CHUC_DANH" Type="Self.DM_GIO_CHUAN_CHUC_DANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Principal>
+            <Dependent Role="DM_GIO_CHUAN_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_D__CD_ID__1A14E395">
+          <End Role="DM_CHUC_DANH" Type="Self.DM_CHUC_DANH" Multiplicity="0..1" />
+          <End Role="GV_CHUC_DANH" Type="Self.GV_CHUC_DANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_DANH">
+              <PropertyRef Name="CD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_GIO_CH__CV_ID__22AA2996">
+          <End Role="DM_CHUC_VU" Type="Self.DM_CHUC_VU" Multiplicity="0..1" />
+          <End Role="DM_GIO_CHUAN_CHUC_VU" Type="Self.DM_GIO_CHUAN_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Principal>
+            <Dependent Role="DM_GIO_CHUAN_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_V__CV_ID__286302EC">
+          <End Role="DM_CHUC_VU" Type="Self.DM_CHUC_VU" Multiplicity="0..1" />
+          <End Role="GV_CHUC_VU" Type="Self.GV_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_VU">
+              <PropertyRef Name="CV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_DON_VI__DV_CH__014935CB">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="DM_DON_VI1" Type="Self.DM_DON_VI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="DM_DON_VI1">
+              <PropertyRef Name="DV_CHA_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_MON_HO__DV_ID__44FF419A">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="DM_MON_HOC">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_NGANH__DV_ID__2D27B809">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="DM_NGANH" Type="Self.DM_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="DM_NGANH">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GIANG_VIE__DV_ID__060DEAE8">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="GIANG_VIEN">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_DON_VI__DV_ID__0BC6C43E">
+          <End Role="DM_DON_VI" Type="Self.DM_DON_VI" Multiplicity="0..1" />
+          <End Role="GV_DON_VI" Type="Self.GV_DON_VI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Principal>
+            <Dependent Role="GV_DON_VI">
+              <PropertyRef Name="DV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DM_MON_HO__HDT_I__440B1D61">
+          <End Role="DM_HE_DAO_TAO" Type="Self.DM_HE_DAO_TAO" Multiplicity="0..1" />
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_HE_DAO_TAO">
+              <PropertyRef Name="HDT_ID" />
+            </Principal>
+            <Dependent Role="DM_MON_HOC">
+              <PropertyRef Name="HDT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_HOC_P__MH_ID__797309D9">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="LOP_HOC_PHAN" Type="Self.LOP_HOC_PHAN" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="LOP_HOC_PHAN">
+              <PropertyRef Name="MH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MH_TIEN_Q__MH_ID__4CA06362">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="MH_TIEN_QUYET" Type="Self.MH_TIEN_QUYET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="MH_TIEN_QUYET">
+              <PropertyRef Name="MH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__MH_TIEN_Q__MHTQ___4D94879B">
+          <End Role="DM_MON_HOC" Type="Self.DM_MON_HOC" Multiplicity="0..1" />
+          <End Role="MH_TIEN_QUYET" Type="Self.MH_TIEN_QUYET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_MON_HOC">
+              <PropertyRef Name="MH_ID" />
+            </Principal>
+            <Dependent Role="MH_TIEN_QUYET">
+              <PropertyRef Name="MHTQ_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_CHUYE__NGANH__73BA3083">
+          <End Role="DM_NGANH" Type="Self.DM_NGANH" Multiplicity="0..1" />
+          <End Role="LOP_CHUYEN_NGANH" Type="Self.LOP_CHUYEN_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DM_NGANH">
+              <PropertyRef Name="NGANH_ID" />
+            </Principal>
+            <Dependent Role="LOP_CHUYEN_NGANH">
+              <PropertyRef Name="NGANH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_D__GV_ID__1920BF5C">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_CHUC_DANH" Type="Self.GV_CHUC_DANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_DANH">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_CHUC_V__GV_ID__276EDEB3">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_CHUC_VU" Type="Self.GV_CHUC_VU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_CHUC_VU">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_DON_VI__GV_ID__0AD2A005">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_DON_VI" Type="Self.GV_DON_VI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_DON_VI">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_GIANG___GV_ID__18EBB532">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="GV_GIANG_DAY" Type="Self.GV_GIANG_DAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="GV_GIANG_DAY">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_CHUYE__GV_ID__74AE54BC">
+          <End Role="GIANG_VIEN" Type="Self.GIANG_VIEN" Multiplicity="0..1" />
+          <End Role="LOP_CHUYEN_NGANH" Type="Self.LOP_CHUYEN_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GIANG_VIEN">
+              <PropertyRef Name="GV_ID" />
+            </Principal>
+            <Dependent Role="LOP_CHUYEN_NGANH">
+              <PropertyRef Name="GV_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GV_GIANG___PCGDC__17F790F9">
+          <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" Type="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" Multiplicity="0..1" />
+          <End Role="GV_GIANG_DAY" Type="Self.GV_GIANG_DAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHAN_CONG_GIANG_DAY_CHI_TIET">
+              <PropertyRef Name="PCGDCT_ID" />
+            </Principal>
+            <Dependent Role="GV_GIANG_DAY">
+              <PropertyRef Name="PCGDCT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOA_HOC___KH_ID__36B12243">
+          <End Role="KHOA_HOC" Type="Self.KHOA_HOC" Multiplicity="0..1" />
+          <End Role="KHOA_HOC_NIEN_KHOA" Type="Self.KHOA_HOC_NIEN_KHOA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA_HOC">
+              <PropertyRef Name="KH_ID" />
+            </Principal>
+            <Dependent Role="KHOA_HOC_NIEN_KHOA">
+              <PropertyRef Name="KH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_CHUYE__KH_ID__72C60C4A">
+          <End Role="KHOA_HOC" Type="Self.KHOA_HOC" Multiplicity="0..1" />
+          <End Role="LOP_CHUYEN_NGANH" Type="Self.LOP_CHUYEN_NGANH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KHOA_HOC">
+              <PropertyRef Name="KH_ID" />
+            </Principal>
+            <Dependent Role="LOP_CHUYEN_NGANH">
+              <PropertyRef Name="KH_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__KHOA_HOC___NK_ID__37A5467C">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="KHOA_HOC_NIEN_KHOA" Type="Self.KHOA_HOC_NIEN_KHOA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="KHOA_HOC_NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LOP_HOC_P__LHP_I__7E37BEF6">
+          <End Role="LOP_HOC_PHAN" Type="Self.LOP_HOC_PHAN" Multiplicity="0..1" />
+          <End Role="LOP_HOC_PHAN_CHI_TIET" Type="Self.LOP_HOC_PHAN_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOP_HOC_PHAN">
+              <PropertyRef Name="LHP_ID" />
+            </Principal>
+            <Dependent Role="LOP_HOC_PHAN_CHI_TIET">
+              <PropertyRef Name="LHP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHAN_CONG__LHP_I__1332DBDC">
+          <End Role="LOP_HOC_PHAN" Type="Self.LOP_HOC_PHAN" Multiplicity="0..1" />
+          <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" Type="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LOP_HOC_PHAN">
+              <PropertyRef Name="LHP_ID" />
+            </Principal>
+            <Dependent Role="PHAN_CONG_GIANG_DAY_CHI_TIET">
+              <PropertyRef Name="LHP_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHAN_CONG__NK_ID__0D7A0286">
+          <End Role="NIEN_KHOA" Type="Self.NIEN_KHOA" Multiplicity="0..1" />
+          <End Role="PHAN_CONG_GIANG_DAY" Type="Self.PHAN_CONG_GIANG_DAY" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NIEN_KHOA">
+              <PropertyRef Name="NK_ID" />
+            </Principal>
+            <Dependent Role="PHAN_CONG_GIANG_DAY">
+              <PropertyRef Name="NK_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PHAN_CONG__PCGD___123EB7A3">
+          <End Role="PHAN_CONG_GIANG_DAY" Type="Self.PHAN_CONG_GIANG_DAY" Multiplicity="0..1" />
+          <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" Type="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PHAN_CONG_GIANG_DAY">
+              <PropertyRef Name="PCGD_ID" />
+            </Principal>
+            <Dependent Role="PHAN_CONG_GIANG_DAY_CHI_TIET">
+              <PropertyRef Name="PCGD_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="webpages_UsersInRoles">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="*" />
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="QLDTContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CHUONG_TRINH_DAO_TAO" EntityType="Self.CHUONG_TRINH_DAO_TAO" />
+          <EntitySet Name="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntityType="Self.CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          <EntitySet Name="DM_CHUC_DANH" EntityType="Self.DM_CHUC_DANH" />
+          <EntitySet Name="DM_CHUC_VU" EntityType="Self.DM_CHUC_VU" />
+          <EntitySet Name="DM_DON_VI" EntityType="Self.DM_DON_VI" />
+          <EntitySet Name="DM_GIO_CHUAN_CHUC_DANH" EntityType="Self.DM_GIO_CHUAN_CHUC_DANH" />
+          <EntitySet Name="DM_GIO_CHUAN_CHUC_VU" EntityType="Self.DM_GIO_CHUAN_CHUC_VU" />
+          <EntitySet Name="DM_HE_DAO_TAO" EntityType="Self.DM_HE_DAO_TAO" />
+          <EntitySet Name="DM_MON_HOC" EntityType="Self.DM_MON_HOC" />
+          <EntitySet Name="DM_NGANH" EntityType="Self.DM_NGANH" />
+          <EntitySet Name="GIANG_VIEN" EntityType="Self.GIANG_VIEN" />
+          <EntitySet Name="GV_CHUC_DANH" EntityType="Self.GV_CHUC_DANH" />
+          <EntitySet Name="GV_CHUC_VU" EntityType="Self.GV_CHUC_VU" />
+          <EntitySet Name="GV_DON_VI" EntityType="Self.GV_DON_VI" />
+          <EntitySet Name="GV_GIANG_DAY" EntityType="Self.GV_GIANG_DAY" />
+          <EntitySet Name="HOC_KY" EntityType="Self.HOC_KY" />
+          <EntitySet Name="KHOA_HOC" EntityType="Self.KHOA_HOC" />
+          <EntitySet Name="KHOA_HOC_NIEN_KHOA" EntityType="Self.KHOA_HOC_NIEN_KHOA" />
+          <EntitySet Name="LOP_CHUYEN_NGANH" EntityType="Self.LOP_CHUYEN_NGANH" />
+          <EntitySet Name="LOP_HOC_PHAN" EntityType="Self.LOP_HOC_PHAN" />
+          <EntitySet Name="LOP_HOC_PHAN_CHI_TIET" EntityType="Self.LOP_HOC_PHAN_CHI_TIET" />
+          <EntitySet Name="MH_TIEN_QUYET" EntityType="Self.MH_TIEN_QUYET" />
+          <EntitySet Name="NIEN_KHOA" EntityType="Self.NIEN_KHOA" />
+          <EntitySet Name="PHAN_CONG_GIANG_DAY" EntityType="Self.PHAN_CONG_GIANG_DAY" />
+          <EntitySet Name="PHAN_CONG_GIANG_DAY_CHI_TIET" EntityType="Self.PHAN_CONG_GIANG_DAY_CHI_TIET" />
+          <EntitySet Name="UserProfiles" EntityType="Self.UserProfile" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" />
+          <AssociationSet Name="FK__CHUONG_TR__DT_ID__5EBF139D" Association="Self.FK__CHUONG_TR__DT_ID__5EBF139D">
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+            <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntitySet="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__DT_NI__52593CB8" Association="Self.FK__CHUONG_TR__DT_NI__52593CB8">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__DT_NI__534D60F1" Association="Self.FK__CHUONG_TR__DT_NI__534D60F1">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__HDT_I__5535A963" Association="Self.FK__CHUONG_TR__HDT_I__5535A963">
+            <End Role="DM_HE_DAO_TAO" EntitySet="DM_HE_DAO_TAO" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__NGANH__5441852A" Association="Self.FK__CHUONG_TR__NGANH__5441852A">
+            <End Role="DM_NGANH" EntitySet="DM_NGANH" />
+            <End Role="CHUONG_TRINH_DAO_TAO" EntitySet="CHUONG_TRINH_DAO_TAO" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__HK_ID__5FB337D6" Association="Self.FK__CHUONG_TR__HK_ID__5FB337D6">
+            <End Role="HOC_KY" EntitySet="HOC_KY" />
+            <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntitySet="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CHUONG_TR__MH_ID__60A75C0F" Association="Self.FK__CHUONG_TR__MH_ID__60A75C0F">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="CHUONG_TRINH_DAO_TAO_CHI_TIET" EntitySet="CHUONG_TRINH_DAO_TAO_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_GIO_CH__CD_ID__145C0A3F" Association="Self.FK__DM_GIO_CH__CD_ID__145C0A3F">
+            <End Role="DM_CHUC_DANH" EntitySet="DM_CHUC_DANH" />
+            <End Role="DM_GIO_CHUAN_CHUC_DANH" EntitySet="DM_GIO_CHUAN_CHUC_DANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_D__CD_ID__1A14E395" Association="Self.FK__GV_CHUC_D__CD_ID__1A14E395">
+            <End Role="DM_CHUC_DANH" EntitySet="DM_CHUC_DANH" />
+            <End Role="GV_CHUC_DANH" EntitySet="GV_CHUC_DANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_GIO_CH__CV_ID__22AA2996" Association="Self.FK__DM_GIO_CH__CV_ID__22AA2996">
+            <End Role="DM_CHUC_VU" EntitySet="DM_CHUC_VU" />
+            <End Role="DM_GIO_CHUAN_CHUC_VU" EntitySet="DM_GIO_CHUAN_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_V__CV_ID__286302EC" Association="Self.FK__GV_CHUC_V__CV_ID__286302EC">
+            <End Role="DM_CHUC_VU" EntitySet="DM_CHUC_VU" />
+            <End Role="GV_CHUC_VU" EntitySet="GV_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_DON_VI__DV_CH__014935CB" Association="Self.FK__DM_DON_VI__DV_CH__014935CB">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_DON_VI1" EntitySet="DM_DON_VI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_MON_HO__DV_ID__44FF419A" Association="Self.FK__DM_MON_HO__DV_ID__44FF419A">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_NGANH__DV_ID__2D27B809" Association="Self.FK__DM_NGANH__DV_ID__2D27B809">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="DM_NGANH" EntitySet="DM_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GIANG_VIE__DV_ID__060DEAE8" Association="Self.FK__GIANG_VIE__DV_ID__060DEAE8">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_DON_VI__DV_ID__0BC6C43E" Association="Self.FK__GV_DON_VI__DV_ID__0BC6C43E">
+            <End Role="DM_DON_VI" EntitySet="DM_DON_VI" />
+            <End Role="GV_DON_VI" EntitySet="GV_DON_VI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DM_MON_HO__HDT_I__440B1D61" Association="Self.FK__DM_MON_HO__HDT_I__440B1D61">
+            <End Role="DM_HE_DAO_TAO" EntitySet="DM_HE_DAO_TAO" />
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_HOC_P__MH_ID__797309D9" Association="Self.FK__LOP_HOC_P__MH_ID__797309D9">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="LOP_HOC_PHAN" EntitySet="LOP_HOC_PHAN" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MH_TIEN_Q__MH_ID__4CA06362" Association="Self.FK__MH_TIEN_Q__MH_ID__4CA06362">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="MH_TIEN_QUYET" EntitySet="MH_TIEN_QUYET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__MH_TIEN_Q__MHTQ___4D94879B" Association="Self.FK__MH_TIEN_Q__MHTQ___4D94879B">
+            <End Role="DM_MON_HOC" EntitySet="DM_MON_HOC" />
+            <End Role="MH_TIEN_QUYET" EntitySet="MH_TIEN_QUYET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_CHUYE__NGANH__73BA3083" Association="Self.FK__LOP_CHUYE__NGANH__73BA3083">
+            <End Role="DM_NGANH" EntitySet="DM_NGANH" />
+            <End Role="LOP_CHUYEN_NGANH" EntitySet="LOP_CHUYEN_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_D__GV_ID__1920BF5C" Association="Self.FK__GV_CHUC_D__GV_ID__1920BF5C">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_CHUC_DANH" EntitySet="GV_CHUC_DANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_CHUC_V__GV_ID__276EDEB3" Association="Self.FK__GV_CHUC_V__GV_ID__276EDEB3">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_CHUC_VU" EntitySet="GV_CHUC_VU" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_DON_VI__GV_ID__0AD2A005" Association="Self.FK__GV_DON_VI__GV_ID__0AD2A005">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_DON_VI" EntitySet="GV_DON_VI" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_GIANG___GV_ID__18EBB532" Association="Self.FK__GV_GIANG___GV_ID__18EBB532">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="GV_GIANG_DAY" EntitySet="GV_GIANG_DAY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_CHUYE__GV_ID__74AE54BC" Association="Self.FK__LOP_CHUYE__GV_ID__74AE54BC">
+            <End Role="GIANG_VIEN" EntitySet="GIANG_VIEN" />
+            <End Role="LOP_CHUYEN_NGANH" EntitySet="LOP_CHUYEN_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GV_GIANG___PCGDC__17F790F9" Association="Self.FK__GV_GIANG___PCGDC__17F790F9">
+            <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" EntitySet="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+            <End Role="GV_GIANG_DAY" EntitySet="GV_GIANG_DAY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOA_HOC___KH_ID__36B12243" Association="Self.FK__KHOA_HOC___KH_ID__36B12243">
+            <End Role="KHOA_HOC" EntitySet="KHOA_HOC" />
+            <End Role="KHOA_HOC_NIEN_KHOA" EntitySet="KHOA_HOC_NIEN_KHOA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_CHUYE__KH_ID__72C60C4A" Association="Self.FK__LOP_CHUYE__KH_ID__72C60C4A">
+            <End Role="KHOA_HOC" EntitySet="KHOA_HOC" />
+            <End Role="LOP_CHUYEN_NGANH" EntitySet="LOP_CHUYEN_NGANH" />
+          </AssociationSet>
+          <AssociationSet Name="FK__KHOA_HOC___NK_ID__37A5467C" Association="Self.FK__KHOA_HOC___NK_ID__37A5467C">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="KHOA_HOC_NIEN_KHOA" EntitySet="KHOA_HOC_NIEN_KHOA" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LOP_HOC_P__LHP_I__7E37BEF6" Association="Self.FK__LOP_HOC_P__LHP_I__7E37BEF6">
+            <End Role="LOP_HOC_PHAN" EntitySet="LOP_HOC_PHAN" />
+            <End Role="LOP_HOC_PHAN_CHI_TIET" EntitySet="LOP_HOC_PHAN_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHAN_CONG__LHP_I__1332DBDC" Association="Self.FK__PHAN_CONG__LHP_I__1332DBDC">
+            <End Role="LOP_HOC_PHAN" EntitySet="LOP_HOC_PHAN" />
+            <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" EntitySet="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHAN_CONG__NK_ID__0D7A0286" Association="Self.FK__PHAN_CONG__NK_ID__0D7A0286">
+            <End Role="NIEN_KHOA" EntitySet="NIEN_KHOA" />
+            <End Role="PHAN_CONG_GIANG_DAY" EntitySet="PHAN_CONG_GIANG_DAY" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PHAN_CONG__PCGD___123EB7A3" Association="Self.FK__PHAN_CONG__PCGD___123EB7A3">
+            <End Role="PHAN_CONG_GIANG_DAY" EntitySet="PHAN_CONG_GIANG_DAY" />
+            <End Role="PHAN_CONG_GIANG_DAY_CHI_TIET" EntitySet="PHAN_CONG_GIANG_DAY_CHI_TIET" />
+          </AssociationSet>
+          <AssociationSet Name="webpages_UsersInRoles" Association="Self.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QuanLyDaoTaoStoreContainer" CdmEntityContainer="QLDTContext">
+          <EntitySetMapping Name="CHUONG_TRINH_DAO_TAO">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.CHUONG_TRINH_DAO_TAO">
+              <MappingFragment StoreEntitySet="CHUONG_TRINH_DAO_TAO">
+                <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+                <ScalarProperty Name="DT_MA" ColumnName="DT_MA" />
+                <ScalarProperty Name="DT_TEN" ColumnName="DT_TEN" />
+                <ScalarProperty Name="DT_NIEN_KHOA_BAT_DAU" ColumnName="DT_NIEN_KHOA_BAT_DAU" />
+                <ScalarProperty Name="DT_NIEN_KHOA_KET_THUC" ColumnName="DT_NIEN_KHOA_KET_THUC" />
+                <ScalarProperty Name="DT_GHI_CHU" ColumnName="DT_GHI_CHU" />
+                <ScalarProperty Name="NGANH_ID" ColumnName="NGANH_ID" />
+                <ScalarProperty Name="HDT_ID" ColumnName="HDT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.CHUONG_TRINH_DAO_TAO_CHI_TIET">
+              <MappingFragment StoreEntitySet="CHUONG_TRINH_DAO_TAO_CHI_TIET">
+                <ScalarProperty Name="DTCT_ID" ColumnName="DTCT_ID" />
+                <ScalarProperty Name="DTCT_BAT_BUOC" ColumnName="DTCT_BAT_BUOC" />
+                <ScalarProperty Name="DT_ID" ColumnName="DT_ID" />
+                <ScalarProperty Name="HK_ID" ColumnName="HK_ID" />
+                <ScalarProperty Name="MH_ID" ColumnName="MH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_CHUC_DANH">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_CHUC_DANH">
+              <MappingFragment StoreEntitySet="DM_CHUC_DANH">
+                <ScalarProperty Name="CD_ID" ColumnName="CD_ID" />
+                <ScalarProperty Name="CD_MA" ColumnName="CD_MA" />
+                <ScalarProperty Name="CD_TEN" ColumnName="CD_TEN" />
+                <ScalarProperty Name="CD_GHI_CHU" ColumnName="CD_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_CHUC_VU">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_CHUC_VU">
+              <MappingFragment StoreEntitySet="DM_CHUC_VU">
+                <ScalarProperty Name="CV_ID" ColumnName="CV_ID" />
+                <ScalarProperty Name="CV_MA" ColumnName="CV_MA" />
+                <ScalarProperty Name="CV_TEN" ColumnName="CV_TEN" />
+                <ScalarProperty Name="CV_GHI_CHU" ColumnName="CV_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_DON_VI">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_DON_VI">
+              <MappingFragment StoreEntitySet="DM_DON_VI">
+                <ScalarProperty Name="DV_ID" ColumnName="DV_ID" />
+                <ScalarProperty Name="DV_MA" ColumnName="DV_MA" />
+                <ScalarProperty Name="DV_TEN" ColumnName="DV_TEN" />
+                <ScalarProperty Name="DV_CHA_ID" ColumnName="DV_CHA_ID" />
+                <ScalarProperty Name="DV_GHI_CHU" ColumnName="DV_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_GIO_CHUAN_CHUC_DANH">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_GIO_CHUAN_CHUC_DANH">
+              <MappingFragment StoreEntitySet="DM_GIO_CHUAN_CHUC_DANH">
+                <ScalarProperty Name="GCCD_ID" ColumnName="GCCD_ID" />
+                <ScalarProperty Name="CD_ID" ColumnName="CD_ID" />
+                <ScalarProperty Name="GCCD_SO_GIO" ColumnName="GCCD_SO_GIO" />
+                <ScalarProperty Name="GCCD_NGAY_AP_DUNG" ColumnName="GCCD_NGAY_AP_DUNG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_GIO_CHUAN_CHUC_VU">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_GIO_CHUAN_CHUC_VU">
+              <MappingFragment StoreEntitySet="DM_GIO_CHUAN_CHUC_VU">
+                <ScalarProperty Name="GCCV_ID" ColumnName="GCCV_ID" />
+                <ScalarProperty Name="CV_ID" ColumnName="CV_ID" />
+                <ScalarProperty Name="GCCV_PHAN_TRAM" ColumnName="GCCV_PHAN_TRAM" />
+                <ScalarProperty Name="GCCV_NGAY_AP_DUNG" ColumnName="GCCV_NGAY_AP_DUNG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_HE_DAO_TAO">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_HE_DAO_TAO">
+              <MappingFragment StoreEntitySet="DM_HE_DAO_TAO">
+                <ScalarProperty Name="HDT_ID" ColumnName="HDT_ID" />
+                <ScalarProperty Name="HDT_MA" ColumnName="HDT_MA" />
+                <ScalarProperty Name="HDT_TEN" ColumnName="HDT_TEN" />
+                <ScalarProperty Name="HDT_GHI_CHU" ColumnName="HDT_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_MON_HOC">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_MON_HOC">
+              <MappingFragment StoreEntitySet="DM_MON_HOC">
+                <ScalarProperty Name="MH_ID" ColumnName="MH_ID" />
+                <ScalarProperty Name="MH_MA" ColumnName="MH_MA" />
+                <ScalarProperty Name="MH_TEN" ColumnName="MH_TEN" />
+                <ScalarProperty Name="MH_SO_TIN_CHI" ColumnName="MH_SO_TIN_CHI" />
+                <ScalarProperty Name="MH_SO_LY_THUYET" ColumnName="MH_SO_LY_THUYET" />
+                <ScalarProperty Name="MH_SO_THUC_HANH" ColumnName="MH_SO_THUC_HANH" />
+                <ScalarProperty Name="HDT_ID" ColumnName="HDT_ID" />
+                <ScalarProperty Name="DV_ID" ColumnName="DV_ID" />
+                <ScalarProperty Name="MH_GHI_CHU" ColumnName="MH_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DM_NGANH">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.DM_NGANH">
+              <MappingFragment StoreEntitySet="DM_NGANH">
+                <ScalarProperty Name="NGANH_ID" ColumnName="NGANH_ID" />
+                <ScalarProperty Name="NGANH_MA" ColumnName="NGANH_MA" />
+                <ScalarProperty Name="NGANH_TEN" ColumnName="NGANH_TEN" />
+                <ScalarProperty Name="NGANH_GHI_CHU" ColumnName="NGANH_GHI_CHU" />
+                <ScalarProperty Name="DV_ID" ColumnName="DV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GIANG_VIEN">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.GIANG_VIEN">
+              <MappingFragment StoreEntitySet="GIANG_VIEN">
+                <ScalarProperty Name="GV_ID" ColumnName="GV_ID" />
+                <ScalarProperty Name="GV_MA" ColumnName="GV_MA" />
+                <ScalarProperty Name="GV_HOTEN" ColumnName="GV_HOTEN" />
+                <ScalarProperty Name="GV_GIOITINH" ColumnName="GV_GIOITINH" />
+                <ScalarProperty Name="GV_NGAYSINH" ColumnName="GV_NGAYSINH" />
+                <ScalarProperty Name="GV_NGAY_BAT_DAU" ColumnName="GV_NGAY_BAT_DAU" />
+                <ScalarProperty Name="GV_NGAY_KET_THUC" ColumnName="GV_NGAY_KET_THUC" />
+                <ScalarProperty Name="GV_DIACHI" ColumnName="GV_DIACHI" />
+                <ScalarProperty Name="GV_EMAIL" ColumnName="GV_EMAIL" />
+                <ScalarProperty Name="GV_SDT" ColumnName="GV_SDT" />
+                <ScalarProperty Name="DV_ID" ColumnName="DV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GV_CHUC_DANH">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.GV_CHUC_DANH">
+              <MappingFragment StoreEntitySet="GV_CHUC_DANH">
+                <ScalarProperty Name="GVCD_ID" ColumnName="GVCD_ID" />
+                <ScalarProperty Name="GV_ID" ColumnName="GV_ID" />
+                <ScalarProperty Name="CD_ID" ColumnName="CD_ID" />
+                <ScalarProperty Name="GVCD_NGAY_BAT_DAU" ColumnName="GVCD_NGAY_BAT_DAU" />
+                <ScalarProperty Name="GVCD_NGAY_KET_THUC" ColumnName="GVCD_NGAY_KET_THUC" />
+                <ScalarProperty Name="GVCD_GHI_CHU" ColumnName="GVCD_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GV_CHUC_VU">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.GV_CHUC_VU">
+              <MappingFragment StoreEntitySet="GV_CHUC_VU">
+                <ScalarProperty Name="GVCV_ID" ColumnName="GVCV_ID" />
+                <ScalarProperty Name="GV_ID" ColumnName="GV_ID" />
+                <ScalarProperty Name="CV_ID" ColumnName="CV_ID" />
+                <ScalarProperty Name="GVCV_NGAY_BAT_DAU" ColumnName="GVCV_NGAY_BAT_DAU" />
+                <ScalarProperty Name="GVCV_NGAY_KET_THUC" ColumnName="GVCV_NGAY_KET_THUC" />
+                <ScalarProperty Name="GVCV_GHI_CHU" ColumnName="GVCV_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GV_DON_VI">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.GV_DON_VI">
+              <MappingFragment StoreEntitySet="GV_DON_VI">
+                <ScalarProperty Name="GVDV_ID" ColumnName="GVDV_ID" />
+                <ScalarProperty Name="GV_ID" ColumnName="GV_ID" />
+                <ScalarProperty Name="DV_ID" ColumnName="DV_ID" />
+                <ScalarProperty Name="GVDV_NGAY_BAT_DAU" ColumnName="GVDV_NGAY_BAT_DAU" />
+                <ScalarProperty Name="GVDV_NGAY_KET_THUC" ColumnName="GVDV_NGAY_KET_THUC" />
+                <ScalarProperty Name="GVDV_GHI_CHU" ColumnName="GVDV_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GV_GIANG_DAY">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.GV_GIANG_DAY">
+              <MappingFragment StoreEntitySet="GV_GIANG_DAY">
+                <ScalarProperty Name="GVGD_ID" ColumnName="GVGD_ID" />
+                <ScalarProperty Name="GVGD_GHI_CHU" ColumnName="GVGD_GHI_CHU" />
+                <ScalarProperty Name="PCGDCT_ID" ColumnName="PCGDCT_ID" />
+                <ScalarProperty Name="GV_ID" ColumnName="GV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOC_KY">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.HOC_KY">
+              <MappingFragment StoreEntitySet="HOC_KY">
+                <ScalarProperty Name="HK_ID" ColumnName="HK_ID" />
+                <ScalarProperty Name="HK_STT" ColumnName="HK_STT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOA_HOC">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.KHOA_HOC">
+              <MappingFragment StoreEntitySet="KHOA_HOC">
+                <ScalarProperty Name="KH_ID" ColumnName="KH_ID" />
+                <ScalarProperty Name="KH_TEN" ColumnName="KH_TEN" />
+                <ScalarProperty Name="KH_GHI_CHU" ColumnName="KH_GHI_CHU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="KHOA_HOC_NIEN_KHOA">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.KHOA_HOC_NIEN_KHOA">
+              <MappingFragment StoreEntitySet="KHOA_HOC_NIEN_KHOA">
+                <ScalarProperty Name="KHNK_ID" ColumnName="KHNK_ID" />
+                <ScalarProperty Name="KH_ID" ColumnName="KH_ID" />
+                <ScalarProperty Name="NK_ID" ColumnName="NK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOP_CHUYEN_NGANH">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.LOP_CHUYEN_NGANH">
+              <MappingFragment StoreEntitySet="LOP_CHUYEN_NGANH">
+                <ScalarProperty Name="LOP_ID" ColumnName="LOP_ID" />
+                <ScalarProperty Name="LOP_MA" ColumnName="LOP_MA" />
+                <ScalarProperty Name="LOP_TEN" ColumnName="LOP_TEN" />
+                <ScalarProperty Name="LOP_SI_SO" ColumnName="LOP_SI_SO" />
+                <ScalarProperty Name="LOP_GHI_CHU" ColumnName="LOP_GHI_CHU" />
+                <ScalarProperty Name="KH_ID" ColumnName="KH_ID" />
+                <ScalarProperty Name="NGANH_ID" ColumnName="NGANH_ID" />
+                <ScalarProperty Name="GV_ID" ColumnName="GV_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOP_HOC_PHAN">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.LOP_HOC_PHAN">
+              <MappingFragment StoreEntitySet="LOP_HOC_PHAN">
+                <ScalarProperty Name="LHP_ID" ColumnName="LHP_ID" />
+                <ScalarProperty Name="LHP_MA" ColumnName="LHP_MA" />
+                <ScalarProperty Name="LHP_GHI_CHU" ColumnName="LHP_GHI_CHU" />
+                <ScalarProperty Name="MH_ID" ColumnName="MH_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOP_HOC_PHAN_CHI_TIET">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.LOP_HOC_PHAN_CHI_TIET">
+              <MappingFragment StoreEntitySet="LOP_HOC_PHAN_CHI_TIET">
+                <ScalarProperty Name="LHPCT_ID" ColumnName="LHPCT_ID" />
+                <ScalarProperty Name="LHPCT_SI_SO" ColumnName="LHPCT_SI_SO" />
+                <ScalarProperty Name="LHP_ID" ColumnName="LHP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MH_TIEN_QUYET">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.MH_TIEN_QUYET">
+              <MappingFragment StoreEntitySet="MH_TIEN_QUYET">
+                <ScalarProperty Name="TQ_ID" ColumnName="TQ_ID" />
+                <ScalarProperty Name="MH_ID" ColumnName="MH_ID" />
+                <ScalarProperty Name="MHTQ_ID" ColumnName="MHTQ_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NIEN_KHOA">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.NIEN_KHOA">
+              <MappingFragment StoreEntitySet="NIEN_KHOA">
+                <ScalarProperty Name="NK_ID" ColumnName="NK_ID" />
+                <ScalarProperty Name="NK_TEN" ColumnName="NK_TEN" />
+                <ScalarProperty Name="NK_NAM_BAT_DAU" ColumnName="NK_NAM_BAT_DAU" />
+                <ScalarProperty Name="NK_NAM_KET_THUC" ColumnName="NK_NAM_KET_THUC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHAN_CONG_GIANG_DAY">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.PHAN_CONG_GIANG_DAY">
+              <MappingFragment StoreEntitySet="PHAN_CONG_GIANG_DAY">
+                <ScalarProperty Name="PCGD_ID" ColumnName="PCGD_ID" />
+                <ScalarProperty Name="NK_ID" ColumnName="NK_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PHAN_CONG_GIANG_DAY_CHI_TIET">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.PHAN_CONG_GIANG_DAY_CHI_TIET">
+              <MappingFragment StoreEntitySet="PHAN_CONG_GIANG_DAY_CHI_TIET">
+                <ScalarProperty Name="PCGDCT_ID" ColumnName="PCGDCT_ID" />
+                <ScalarProperty Name="PCGD_ID" ColumnName="PCGD_ID" />
+                <ScalarProperty Name="LHP_ID" ColumnName="LHP_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="QuanLyDaoTao.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="QuanLyDaoTao.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

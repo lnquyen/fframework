@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewBag.Title = "Đơn vị";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section header{
+    Danh mục đơn vị
+}
+
+<table id="dg" title="Danh sách đơn vị" class="easyui-datagrid " style="width:95%"
+       url="@Url.Action("LoadData", "DonVi")"
+       toolbar="#toolbar" pagination="true"
+       sortName="DV_MA" sortOrder="asc"
+       rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+        <tr>
+            <th field="DV_MA" width="20%" sortable="true"><strong>Mã đơn vị</strong></th>
+            <th field="DV_TEN" width="50%" sortable="true"><strong>Tên đơn vị</strong></th>
+            <th field="DV_GHI_CHU" width="30%"><strong>Ghi chú</strong></th>
+        </tr>
+    </thead>
+</table>
+<div id="toolbar">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="add()">Thêm mới</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="edit()">Sửa</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="del()">Xóa</a>
+</div>
+
+<!--Dialog-->
+<div id="dlg" class="easyui-dialog" style="width:500px;height:280px;padding:10px 20px" closed="true" buttons="#dlg-buttons">
+    <div class="ftitle">Thông tin đơn vị</div>
+    <form id="fmDonVi" class="fm" method="post" novalidate>
+        <div class="fitem">
+            <label>Mã đơn vị:</label>
+            <input name="DV_MA" class="easyui-textbox" required="true">
+            <input name="DV_ID" type="hidden">
+        </div>
+        <div class="fitem">
+            <label>Tên đơn vị:</label>
+            <input name="DV_TEN" class="easyui-textbox" required="true">
+        </div>
+        <div class="fitem">
+            <label>Ghi chú:</label>
+            <input name="DV_GHI_CHU" class="easyui-textbox" >
+        </div>       
+    </form>
+</div>
+<div id="dlg-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="save()" style="width:90px">Lưu</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Bỏ qua</a>
+</div>
+
+
+<!-- DataTables JavaScript -->
+@*@Scripts.Render("~/DonVi/js")*@
+
+<script type="text/javascript">
+    var url;
+    var frm = $('#fmDonVi');
+ 
+        function add(){
+            $('#dlg').dialog('open').dialog('center').dialog('setTitle','Thêm mới');
+            frm.form('clear');
+            url = "@Url.Action("Create", "DonVi")";
+        }
+        function edit() {
+            var row = $('#dg').datagrid('getSelected');
+            if (row) {
+                $('#dlg').dialog('open').dialog('center').dialog('setTitle','Cập nhật thông tin');
+                frm.form('load', row);
+                url = "@Url.Action("Update", "DonVi")";
+            }
+        }
+        function save() {
+            if (frm.form('validate')) {
+                var obj = frm.serialize();
+                $.ajax({
+                    method: "POST",
+                    url: url,
+                    dataType: "json",
+                    data: obj,
+                    success: function (result) {
+                        if (result.errorMsg){
+                            $.messager.show({
+                                title: 'Lỗi',
+                                msg: result.errorMsg
+                            });
+                        } else {
+                            $('#dlg').dialog('close');        // close the dialog
+                            $('#dg').datagrid('reload');    // reload the user data
+                        }
+                    }
+                });
+
+
+            }
+        }
+        function del() {
+            var row = $('#dg').datagrid('getSelected');
+            if (row){
+                $.messager.confirm('Xác nhận','Bạn có chắc muốn xóa?',function(r){
+                    if (r) {
+                        $.ajax({
+                            method: "POST",
+                            url: "@Url.Action("Delete", "DonVi")"+"?id="+row.DV_ID,
+                            dataType: "json",
+                            success: function (result) {
+                                if (result.errorMsg) {
+                                    $.messager.show({
+                                        title: 'Error',
+                                        msg: result.errorMsg
+                                    });
+                                } else {
+                                    $('#dlg').dialog('close');        // close the dialog
+                                    $('#dg').datagrid('reload');    // reload the user data
+                                }
+                            }
+                        });
+                    }
+                });
+            }
+        }
+</script>

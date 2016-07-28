@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BAED6743-0E21-49D2-B111-FFDA948540CE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Models</RootNamespace>
+    <AssemblyName>Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dao\DonViDao.cs" />
+    <Compile Include="Entity\CHUONG_TRINH_DAO_TAO.cs" />
+    <Compile Include="Entity\CHUONG_TRINH_DAO_TAO_CHI_TIET.cs" />
+    <Compile Include="Entity\DM_CHUC_DANH.cs" />
+    <Compile Include="Entity\DM_CHUC_VU.cs" />
+    <Compile Include="Entity\DM_DON_VI.cs" />
+    <Compile Include="Entity\DM_GIO_CHUAN_CHUC_DANH.cs" />
+    <Compile Include="Entity\DM_GIO_CHUAN_CHUC_VU.cs" />
+    <Compile Include="Entity\DM_HE_DAO_TAO.cs" />
+    <Compile Include="Entity\DM_MON_HOC.cs" />
+    <Compile Include="Entity\DM_NGANH.cs" />
+    <Compile Include="Entity\GIANG_VIEN.cs" />
+    <Compile Include="Entity\GV_CHUC_DANH.cs" />
+    <Compile Include="Entity\GV_CHUC_VU.cs" />
+    <Compile Include="Entity\GV_DON_VI.cs" />
+    <Compile Include="Entity\GV_GIANG_DAY.cs" />
+    <Compile Include="Entity\HOC_KY.cs" />
+    <Compile Include="Entity\KHOA_HOC.cs" />
+    <Compile Include="Entity\KHOA_HOC_NIEN_KHOA.cs" />
+    <Compile Include="Entity\LOP_CHUYEN_NGANH.cs" />
+    <Compile Include="Entity\LOP_HOC_PHAN.cs" />
+    <Compile Include="Entity\LOP_HOC_PHAN_CHI_TIET.cs" />
+    <Compile Include="Entity\MH_TIEN_QUYET.cs" />
+    <Compile Include="Entity\NIEN_KHOA.cs" />
+    <Compile Include="Entity\PHAN_CONG_GIANG_DAY.cs" />
+    <Compile Include="Entity\PHAN_CONG_GIANG_DAY_CHI_TIET.cs" />
+    <Compile Include="Entity\QuanLyDaoTaoDbContext.cs" />
+    <Compile Include="Entity\UserProfile.cs" />
+    <Compile Include="Entity\webpages_Membership.cs" />
+    <Compile Include="Entity\webpages_OAuthMembership.cs" />
+    <Compile Include="Entity\webpages_Roles.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

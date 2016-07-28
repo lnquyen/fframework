@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0da8a9f7aa4649e08227101fa2d2662a" Name="Diagram1">
+        <EntityTypeShape EntityType="QuanLyDaoTao.CHUONG_TRINH_DAO_TAO" Width="1.5" PointX="5.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.CHUONG_TRINH_DAO_TAO_CHI_TIET" Width="1.5" PointX="10.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_CHUC_DANH" Width="1.5" PointX="6" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_CHUC_VU" Width="1.5" PointX="3" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_DON_VI" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_GIO_CHUAN_CHUC_DANH" Width="1.5" PointX="8.25" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_GIO_CHUAN_CHUC_VU" Width="1.5" PointX="5.25" PointY="34.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_HE_DAO_TAO" Width="1.5" PointX="0.75" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_MON_HOC" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.DM_NGANH" Width="1.5" PointX="3" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.GIANG_VIEN" Width="1.5" PointX="3" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.GV_CHUC_DANH" Width="1.5" PointX="8.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.GV_CHUC_VU" Width="1.5" PointX="5.25" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.GV_DON_VI" Width="1.5" PointX="8.25" PointY="19.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.GV_GIANG_DAY" Width="1.5" PointX="10.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.HOC_KY" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.KHOA_HOC" Width="1.5" PointX="3" PointY="27.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.KHOA_HOC_NIEN_KHOA" Width="1.5" PointX="10.25" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.LOP_CHUYEN_NGANH" Width="1.5" PointX="5.25" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.LOP_HOC_PHAN" Width="1.5" PointX="5.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.LOP_HOC_PHAN_CHI_TIET" Width="1.5" PointX="7.5" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.MH_TIEN_QUYET" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.NIEN_KHOA" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.PHAN_CONG_GIANG_DAY" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.PHAN_CONG_GIANG_DAY_CHI_TIET" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.UserProfile" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.webpages_Membership" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.webpages_OAuthMembership" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QuanLyDaoTao.webpages_Roles" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__CHUONG_TR__DT_ID__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__CHUONG_TR__DT_NI__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__CHUONG_TR__DT_NI__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__CHUONG_TR__HDT_I__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__CHUONG_TR__NGANH__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__CHUONG_TR__HK_ID__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__CHUONG_TR__MH_ID__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__DM_GIO_CH__CD_ID__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_CHUC_D__CD_ID__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__DM_GIO_CH__CV_ID__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_CHUC_V__CV_ID__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__DM_DON_VI__DV_CH__014935CB" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__DM_MON_HO__DV_ID__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__DM_NGANH__DV_ID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GIANG_VIE__DV_ID__060DEAE8" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_DON_VI__DV_ID__0BC6C43E" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__DM_MON_HO__HDT_I__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__LOP_HOC_P__MH_ID__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__MH_TIEN_Q__MH_ID__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__MH_TIEN_Q__MHTQ___4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__LOP_CHUYE__NGANH__73BA3083" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_CHUC_D__GV_ID__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_CHUC_V__GV_ID__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_DON_VI__GV_ID__0AD2A005" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_GIANG___GV_ID__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__LOP_CHUYE__GV_ID__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__GV_GIANG___PCGDC__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__KHOA_HOC___KH_ID__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__LOP_CHUYE__KH_ID__72C60C4A" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__KHOA_HOC___NK_ID__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__LOP_HOC_P__LHP_I__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__PHAN_CONG__LHP_I__1332DBDC" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__PHAN_CONG__NK_ID__0D7A0286" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.FK__PHAN_CONG__PCGD___123EB7A3" ManuallyRouted="false" />
+        <AssociationConnector Association="QuanLyDaoTao.webpages_UsersInRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
